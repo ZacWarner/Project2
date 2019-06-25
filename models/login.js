@@ -1,10 +1,6 @@
 /* eslint-disable prettier/prettier */
 module.exports = function (sequelize, DataTypes) {
-  var Login = sequelize.define("login", {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
+  var Login = sequelize.define("Login", {
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -25,6 +21,8 @@ module.exports = function (sequelize, DataTypes) {
     Login.hasMany(models.Seller, {
       onDelete: "cascade"
     });
+
+
     Login.hasMany(models.Products, {
       onDelete: "cascade"
     });

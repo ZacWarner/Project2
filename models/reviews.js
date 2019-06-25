@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT,
         },
         product_id: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
         }
     });
 
