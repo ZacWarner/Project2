@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable prettier/prettier */
 module.exports = function (sequelize, DataTypes) {
-    var Seller = sequelize.define("seller", {
+    var Seller = sequelize.define("Seller", {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -40,5 +40,5 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
     };
-    return seller;
+    return Seller;
 };
