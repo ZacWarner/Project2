@@ -1,6 +1,6 @@
+/* eslint-disable prettier/prettier */
 var db = require("../models");
 var passport = require("../config/passport");
-
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
