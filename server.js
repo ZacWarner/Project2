@@ -33,6 +33,9 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/loginRoutes")(app);
+require("./routes/sellerRoutes")(app);
+require("./routes/reviewRoutes")(app);
+require("./routes/productRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };

@@ -1,7 +1,12 @@
+/* eslint-disable prettier/prettier */
 var db = require("../models");
 var passport = require("../config/passport");
 
+<<<<<<< HEAD
 module.exports = function(app) {
+=======
+module.exports = function (app) {
+>>>>>>> 83b8fa375f620ce5e2d2a4121fb40f1c98b5d709
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
