@@ -30,6 +30,7 @@ $(document).ready(function () {
             username: email,
             password: password
         }).then(function (data) {
+            window.location.replace("/");
             console.log("signed up");
         }).catch(handleLoginError);
     };
