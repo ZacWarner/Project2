@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable indent */
 
 
 //java for signup page.
@@ -10,6 +12,7 @@ $(document).ready(function () {
     var phone = $("input#inputPhone");
     var city = $("input#inputCity");
     var state = $("input#inputState");
+
 
 
     signForm.on("submit", function (event) {
@@ -26,16 +29,27 @@ $(document).ready(function () {
             city: city.val().trim(),
             state: state.val(),
         }
-
         //makes sure we got the email and password
         if (!newUsr.username || !newUsr.password) {
             return;
         }
 
-        createNewUsr(newUsr.username, newUsr.password);
-        email.val("");
-        password.val("");
+        // let queryUrl = "http://apilayer.net/api/check?access_key=" + (process.env.EMAIL_VALIDATION_KEY) + "&email=" + newUsr.username;
+        let queryUrl = "http://apilayer.net/api/check?access_key=13dfe254ebf93650d6bf38984d929d97&email=" + newUsr.username;
+        $.ajax({
+            url: queryUrl,
+            method: "GET"
+        }).then(function (response) {
+            if (response.smtp_check == true) {
+                createNewUsr(newUsr.username, newUsr.password);
+            } else {
+                $("#alert .msg").text("Invalid username");
+                $("#alert").fadeIn(500);
+            }
+            email.val("");
+            password.val("");
 
+        });
     });
 
     function createNewUsr(email, password) {
