@@ -36,7 +36,7 @@ $(document).ready(function () {
     };
 
     function handleLoginError(err) {
-        $("#alert .msg").text(err.responseJSON);
+        $("#alert .msg").text("User name already exists");
         $("#alert").fadeIn(500);
     };
 
