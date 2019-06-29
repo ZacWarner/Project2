@@ -68,8 +68,7 @@ $(document).ready(function () {
 
             console.log("signed up");
             createNewSeller(newSel.name, newSel.phone, newSel.city, newSel.state, newSel.email);
-            email.val("");
-            password.val("");
+
             name.val("");
             phone.val("");
             city.val("");
