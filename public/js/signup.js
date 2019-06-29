@@ -13,6 +13,17 @@ $(document).ready(function () {
     var city = $("input#inputCity");
     var state = $("input#inputState");
 
+    var stateList = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MH", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "PW", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY"];
+
+    function populateState() {
+        for (let i = 0; i < stateList.length; i++) {
+            var newOption = $("<option>");
+            newOption.text(stateList[i]);
+            $("#inputState").append(newOption);
+        }
+    };
+
+    populateState();
 
 
     signForm.on("submit", function (event) {
@@ -68,8 +79,7 @@ $(document).ready(function () {
 
             console.log("signed up");
             createNewSeller(newSel.name, newSel.phone, newSel.city, newSel.state, newSel.email);
-            email.val("");
-            password.val("");
+
             name.val("");
             phone.val("");
             city.val("");
