@@ -33,8 +33,7 @@ $(document).ready(function () {
         }
 
         createNewUsr(newUsr.username, newUsr.password);
-        email.val("");
-        password.val("");
+
 
     });
 
@@ -54,6 +53,11 @@ $(document).ready(function () {
 
             console.log("signed up");
             createNewSeller(newSel.name, newSel.phone, newSel.city, newSel.state, newSel.email);
+            email.val("");
+            password.val("");
+            name.val("");
+            phone.val("");
+            city.val("");
         }).catch(handleLoginError);
     };
 
@@ -62,6 +66,7 @@ $(document).ready(function () {
         $("#alert").fadeIn(500);
     };
 
+    //this will update the seller info, and attach the user id to it.
     function createNewSeller(name, phone, city, state, email) {
         var loc = city + ", " + state;
         $.post("/api/sellers/newseller", {
