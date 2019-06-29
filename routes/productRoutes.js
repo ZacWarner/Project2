@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable prettier/prettier */
 var db = require("../models");
+require("../config/passport");
 
 module.exports = function (app) {
     // Get all product details
@@ -58,6 +59,7 @@ module.exports = function (app) {
         },
             {
                 where: {
+                    LoginId: req.user.id,
                     id: req.params.productid
                 }
             }).then(function (result) {
@@ -69,6 +71,7 @@ module.exports = function (app) {
     app.delete("/api/products/deleteproduct/:id", function (req, res) {
         db.Products.destroy({
             where: {
+                LoginId: req.user.id,
                 id: req.params.id
             }
         }).then(function (result) {

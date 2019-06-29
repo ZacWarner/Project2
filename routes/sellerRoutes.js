@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable prettier/prettier */
 var db = require("../models");
+require("../config/passport");
 
 module.exports = function (app) {
   // Get all seller details
@@ -32,6 +33,8 @@ module.exports = function (app) {
       LoginId: req.user.id
     }).then(function (result) {
       res.json(result);
+    }).catch(function (err) {
+      console.log(err);
     });
   });
 
@@ -47,6 +50,7 @@ module.exports = function (app) {
     },
       {
         where: {
+          LoginId: req.user.id,
           id: req.params.sellerid
         }
       }).then(function (result) {
