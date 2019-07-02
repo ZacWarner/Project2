@@ -1,24 +1,32 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get all from products
+  app.get("/api/project_2.products", function(req, res) {
+    // eslint-disable-next-line camelcase
+    db.project_2.products.findAll({}).then(function(dbproject_2) {
+      // eslint-disable-next-line camelcase
+      res.json(dbproject_2.products);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Create a new product
+  app.post("/api/project_2.products", function(req, res) {
+    // eslint-disable-next-line camelcase
+    db.project_2.products.create(req.body).then(function(dbproject_2) {
+      // eslint-disable-next-line camelcase
+      res.json(dbproject_2.products);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
+  // Delete a product by id
+  app.delete("/api/project_2.products/:id", function(req, res) {
+    db.project_2.products
+      .destroy({ where: { id: req.params.id } })
+      // eslint-disable-next-line camelcase
+      .then(function(dbproject_2) {
+        // eslint-disable-next-line camelcase
+        res.json(dbproject_2.products);
+      });
   });
 };

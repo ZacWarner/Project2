@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var session = require("express-session");
+
+var passport = require("./config/passport");
 
 var db = require("./models");
 
@@ -12,6 +16,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+//passport stuffs
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Handlebars
 app.engine(
   "handlebars",
@@ -22,7 +33,10 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
+require("./routes/loginRoutes")(app);
+require("./routes/sellerRoutes")(app);
+require("./routes/reviewRoutes")(app);
+require("./routes/productRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
@@ -34,7 +48,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync(syncOptions).then(function () {
   app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
