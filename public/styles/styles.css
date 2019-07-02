@@ -143,3 +143,17 @@ input[type=text] {
 .page-headers{
     color: rgb(89, 195, 209)
 }
+
+.searchBar{
+    overflow: hidden;
+    background: white;
+    height: 3rem;
+    margin-right: 5rem;
+    margin-top: 5rem;
+
+}
+
+button{
+    margin-top: 5rem;
+    margin-left: 5rem;
+}
