@@ -1,10 +1,145 @@
-.list-group-item {
-  line-height: 2.5;
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap');
+
+body{
+    overflow-x: hidden;
+    font-family: 'Noto Sans HK', sans-serif; 
+    color: #006AA0;
+    background-image: url(../assets/images/computers1.jpg);
 }
-.formholder{
-  margin: 10px;
-  padding: 30px;
+
+.navbar-brand img{
+    height: 3rem;
+    border-radius: 50%;
 }
-#body{
-  margin: 10px;
+
+span{
+    padding-left: 1rem;
+}
+
+.navbar{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background: rgba(0, 0, 0, 0.6)
+}
+
+.navbar-nav li{
+    padding-right: .7rem;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
+    padding-top: .8rem;
+}
+
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link:hover{
+    color:  #006AA0
+}
+
+h1{
+    color: white;
+    font-size: 100px;
+    padding-top: 10rem;
+    text-transform: uppercase;
+}
+
+h3{
+    color:  white;
+    font-size: 100px;
+    padding-top: 5rem;
+    padding-bottom: 20rem;
+    text-transform: uppercase;
+}
+
+.column .items img{
+    width: 20rem;
+    border-radius: 20%;
+    height: 20rem;
+}
+
+.column .middleItems img{
+  width: 10rem;
+  border-radius: 5%;
+  height: 10rem;
+}
+
+.column .bottomItems img{
+  width: 10rem;
+  border-radius: 5%;
+  height: 10rem;
+}
+
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=text]:focus {
+    width: 30%;
+  }
+
+  .jumbotron{
+    margin-bottom: 0;
+    background-color: rgb(246, 247, 248);
+}
+
+.column .items{
+    background-color: rgba(0, 0, 0, 0.082);
+}
+
+.column .bottomItems{
+    background-color: rgba(0, 0, 0, 0.082);
+}
+
+.items{
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.middleItems{
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.bottomItems{
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.productPrice{
+    text-transform: uppercase;
+    font-size:  25px;
+}
+
+.productName{
+    text-transform: uppercase;
+    font-size:  25px;
+}
+
+.checked{
+    color: orange;
+    padding-left: 0px;
+}
+
+.unchecked{
+    padding-left: 0px
+}
+
+.productdescription{
+    float: right;
+}
+.field-headers{
+    color: rgba(112, 220, 235, 0.6)
+}
+.page-headers{
+    color: rgb(89, 195, 209)
 }
