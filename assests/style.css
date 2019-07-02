@@ -54,9 +54,21 @@ h3{
 }
 
 .column .items img{
-    width: 20rem;
-    border-radius: 20%;
-    height: 20rem;
+    width: 10rem;
+    border-radius: 5%;
+    height: 10rem;
+}
+
+.column .middleItems img{
+    width: 10rem;
+    border-radius: 5%;
+    height: 10rem;
+}
+
+.column .bottomItems img{
+    width: 10rem;
+    border-radius: 5%;
+    height: 10rem;
 }
 
 input[type=text] {
@@ -69,8 +81,56 @@ input[type=text] {
     width: 30%;
   }
 
-.productdescription{
-    float: right;
+.jumbotron{
+    margin-bottom: 0;
+    background-color: rgb(246, 247, 248);
 }
 
+.column .items{
+    background-color: rgba(0, 0, 0, 0.082);
+}
+
+.column .bottomItems{
+    background-color: rgba(0, 0, 0, 0.082);
+}
+
+.items{
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.middleItems{
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.bottomItems{
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.productPrice{
+    text-transform: uppercase;
+    font-size:  25px;
+}
+
+.productName{
+    text-transform: uppercase;
+    font-size:  25px;
+}
+
+.checked{
+    color: orange;
+    padding-left: 0px;
+}
+
+.unchecked{
+    padding-left: 0px
+}
 
