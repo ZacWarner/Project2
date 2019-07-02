@@ -22,6 +22,10 @@ module.exports = function (app) {
     let you = req.user;
     res.render("searchSeller", { user: you });
   });
+  // Load products page
+  app.get("/products", function (req, res) {
+    res.render("products");
+  });
 
   // Load products page and pass in a table by id
   app.get("/project_2.products/:id", function (req, res) {
