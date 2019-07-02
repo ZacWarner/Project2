@@ -72,5 +72,9 @@ input[type=text] {
 .productdescription{
     float: right;
 }
-
-
+.field-headers{
+    color: rgba(112, 220, 235, 0.6)
+}
+.page-headers{
+    color: rgb(89, 195, 209)
+}
