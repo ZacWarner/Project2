@@ -1,48 +1,58 @@
-   <!--Navbar-->
+<!--Navbar-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#"><img src="assets/images/Icon.jpeg"><span>Agora</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <a class="navbar-brand" href="#"><img src="assets/images/Icon.jpeg"><span>Agora</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="#home">Home</a>
-                </li>
-                <li class="nav-item"><a class="nav-link">Search Products</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" id="findSeller">Find Seller</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" id="signUp" href="/signup">Sign Up</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" id="logIn" href="/login">Login</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item"><a class="nav-link">Search Products</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" id="findSeller">Find Seller</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" id="signUp" href="/signup">Sign Up</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" id="logIn" href="/login">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <br><br><br><br>
 
-   <!--Public Info Card-->
+<!--Public Info Card-->
 
-   <div class="card" style="">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Seller Name</h5>
-    <p class="card-text">Some stuff about the seller.</p>
-  </div>
-
-
-
-   <!--Items from this seller by category-->
-<div class="input-group">
-  <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-  <div class="input-group-append">
-    <button class="btn btn-outline-info" type="button">Search</button>
-  </div>
+<div class="card" style="">
+    <div class="card-body">
+        <h5 class="card-title">Meena Krs</h5>
+        <div class="card-text">
+            <div class="row">
+                <div class="col-md-6">
+                    <p id="sellerPh">Phone: </p>
+                    <p id="sellerEmail">Email: </p>
+                </div>
+                <div class="col-md-6">
+                    <p id="sellerLoc">Location: </p>
+                    <button id="dropEmail" class="btn btn-info">Drop a message to this seller</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br>
+<div class="card" style="">
+    <div class="card-body">
+        <h5 class="card-title">Products by this seller</h5>
+        <hr>
+        <div class="product-images">
+        </div>
+    </div>
 </div>
-</div>
+
+<!--Javascript-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery.js"></script>
+{{!-- links the special signup js and a version of jquery with ajax --}}
+<script src="js/pubProfile.js"></script>
