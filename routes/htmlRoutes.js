@@ -14,6 +14,10 @@ module.exports = function (app) {
   app.get("/login", function (req, res) {
     res.render("login");
   });
+  // Load searchSeller page
+  app.get("/searchSeller", function (req, res) {
+    res.render("searchSeller");
+  });
 
   // Load products page and pass in a table by id
   app.get("/project_2.products/:id", function (req, res) {
