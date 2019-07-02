@@ -145,6 +145,20 @@ input[type=text] {
     color: rgb(89, 195, 209)
 }
 
+
+.searchBar{
+    overflow: hidden;
+    background: white;
+    height: 3rem;
+    margin-right: 5rem;
+    margin-top: 5rem;
+
+}
+
+button{
+    margin-top: 5rem;
+    margin-left: 5rem;
+
 .thumbnail{
     width: 200px;
     height: 200px;
@@ -154,4 +168,5 @@ input[type=text] {
 .product-card{
     color: white;
     background-color: rgba(246, 247, 248, 0.1)
+
 }
