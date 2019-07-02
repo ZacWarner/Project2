@@ -18,6 +18,10 @@ module.exports = function(app) {
   app.get("/searchSeller", function(req, res) {
     res.render("searchSeller");
   });
+  // Load products page
+  app.get("/products", function(req, res) {
+    res.render("products");
+  });
 
   // Load products page and pass in a table by id
   app.get("/project_2.products/:id", function(req, res) {

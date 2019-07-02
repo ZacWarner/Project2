@@ -143,3 +143,14 @@ input[type=text] {
 .page-headers{
     color: rgb(89, 195, 209)
 }
+.thumbnail-holder{
+    max-width: 200px;
+    max-height: 200px;
+    
+   
+}
+.thumbnail{
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+}
