@@ -12,10 +12,10 @@ module.exports = function (app) {
     });
 
     // Get seller specific reviews
-    app.get("/api/reviews/seller/:id", function (req, res) {
+    app.get("/api/reviews/seller/:sellerid", function (req, res) {
         db.Reviews.findAll({
             where: {
-                LoginId: req.params.id
+                LoginId: req.params.sellerid
             }
         }).then(function (results) {
             res.json(results);
@@ -28,7 +28,7 @@ module.exports = function (app) {
             reviewer_name: req.body.reviewer_name,
             review: req.body.review,
             product_id: req.body.product_id,
-            LoginId: req.user.id
+            LoginId: req.body.sellerid
         }).then(function (result) {
             res.json(result);
         });
@@ -40,7 +40,7 @@ module.exports = function (app) {
             reviewer_name: req.body.reviewer_name,
             review: req.body.review,
             product_id: req.body.product_id,
-            LoginId: req.user.id
+            LoginId: req.body.sellerid
         },
             {
                 where: {
@@ -52,7 +52,7 @@ module.exports = function (app) {
     });
 
     // Delete review
-    app.delete("/api/reviews/delreview/:reviewid", function (req, res) {
+    app.delete("/api/reviews/deletereview/:reviewid", function (req, res) {
         db.Reviews.destroy({
             where: {
                 id: req.params.reviewid
