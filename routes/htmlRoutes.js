@@ -19,7 +19,8 @@ module.exports = function (app) {
   });
   // Load searchSeller page
   app.get("/searchSeller", function (req, res) {
-    res.render("searchSeller");
+    let you = req.user;
+    res.render("searchSeller", { user: you });
   });
   // Load products page
   app.get("/products", function (req, res) {
