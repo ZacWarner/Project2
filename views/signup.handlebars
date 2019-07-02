@@ -1,0 +1,90 @@
+<!--Navbar-->
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="/"><img src="assets/images/Icon.jpeg"><span>Agora</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" id="findSeller">Find Seller</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" id="signUp" href="/signup">Sign Up</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" id="logIn" href="/login">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br><br><br><br><br>
+<div class="container">
+  <h2 class="page-headers">Sign Up</h2>
+  <div class="formholder">
+    <form id="newUsr">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label class="field-headers" for="inputEmail4">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+          <label class="field-headers" for="inputPassword4">Password</label>
+          <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+        </div>
+      </div>
+
+      <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span> <span class="msg"></span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label class="field-headers" for="inputName">Name</label>
+          <input type="text" class="form-control" id="inputName">
+        </div>
+        <div class="form-group col-md-6">
+          <label class="field-headers" for="inputPhone">Phone Number</label>
+          <input type="text" class="form-control" id="inputPhone">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label class="field-headers" for="inputCity">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="form-group col-md-4">
+          <label class="field-headers" for="inputState">State</label>
+          <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+
+          </select>
+        </div>
+      </div>
+      {{!-- <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            Check me out
+          </label>
+        </div>
+      </div> --}}
+      <button type="submit" class="btn btn-info">Sign up!</button>
+    </form>
+  </div>
+</div>
+
+<!--Javascript-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/java.js"></script>
+{{!-- links the special signup js and a version of jquery with ajax --}}
+<script src="js/signup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

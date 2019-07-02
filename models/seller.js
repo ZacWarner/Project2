@@ -17,10 +17,10 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true,
             validate: {
-                len: [10]
+                len: [1, 50]
             }
         },
         location: {
