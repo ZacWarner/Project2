@@ -3,12 +3,15 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.render("index");
+    let you = req.user;
+  
+    res.render("index", { user: you })
   });
   // Load Signup page
-  app.get("/signup", function(req, res) {
-    res.render("signup");
-  });
+  app.get("/signup", function(req, res)  {
+    
+      res.render("signup");
+    });
 
   // Load Login page
   app.get("/login", function(req, res) {

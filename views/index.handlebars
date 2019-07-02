@@ -2,6 +2,36 @@
 
     <!--Navbar-->
 
+    {{#if user}}
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/"><img src="./assets/images/Icon.jpeg"><span>Agora</span></a>
+        <a class="navbar-brand page-headers"><span>Welcome: </span><span>{{user.username}}</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        {{!-- <div>
+            <h3>{{user.username}}</h3>
+        </div> --}}
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item"><a class="nav-link">Search Products</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" id="findSeller" href="/searchSeller">Find Seller</a>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" id="logOut" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {{else}}
+
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="/"><img src="./assets/images/Icon.jpeg"><span>Agora</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -23,6 +53,8 @@
             </ul>
         </div>
     </nav>
+
+    {{/if}}
 
     <!--Landing Page-->
     <div class="landing">
