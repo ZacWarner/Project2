@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable prettier/prettier */
 var db = require("../models");
+const sgMail = require('@sendgrid/mail');
 require("../config/passport");
 
 module.exports = function (app) {
@@ -72,4 +73,18 @@ module.exports = function (app) {
     });
   });
   */
+
+  // Send email to seller
+  app.post("/api/sellers/sendemail", function (req, res) {
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const message = {
+      to: req.body.to,
+      from: req.body.from,
+      subject: "Interested in your product",
+      text: req.body.message,
+      html: "<strong>" + req.body.message + "</strong>",
+    };
+    sgMail.send(message);
+    res.json("Email Sent to " + req.body.to);
+  });
 };
