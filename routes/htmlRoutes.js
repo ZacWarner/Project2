@@ -6,22 +6,22 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     let you = req.user;
 
-    res.render("index", { user: you })
+    res.render("index", { user: you });
   });
   // Load Signup page
   app.get("/signup", function (req, res) {
 
     res.render("signup");
   });
-  // Load Search page
-  app.get("/sellercover", function (req, res) {
-    res.render("pubProfile");
-  });
 
-  // app.get("/sellercover/:sellerid", function (req, res) {
-  //   let id = req.params.sellerid;
-  //   res.render("pubProfile", { sellerId: id });
-  // });
+  // Seller public profile
+  app.get("/sellercover", function (req, res) {
+    let id = 6;
+    // app.get("/sellercover/:sellerid", function (req, res) {
+    //   let id = req.params.sellerid;
+    console.log("Id in htmlroute: " + id);
+    res.render("pubProfile", { sellerId: id });
+  });
 
   // Load Login page
   app.get("/login", function (req, res) {
