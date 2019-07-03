@@ -3,27 +3,13 @@
 $(document).ready(function () {
     var sellerEmailId = "";
     console.log("Execution");
-    $.ajax({
-        url: "api/sellers/id/6",
-        type: "GET"
-    }).then(
-        function (data) {
-            console.log("Seller");
-            console.log(data);
-            sellerEmailId = data.email;
-            $("#sellername").append(data.name);
-            $("#sellerPh").append(data.phone);
-            $("#sellerEmail").append(data.email);
-            $("#sellerLoc").append(data.location);
-
-            $("#modalname").append(data.name);
-        }
-    ).catch(function (err) {
-        console.log(err);
-    });
+    let dataAttr = $("#sellername").attr("data-sellerid");
+    console.log("Seller id: " + dataAttr);
+    console.log("/api/sellers/id/" + dataAttr);
+    console.log("/api/products/seller/" + dataAttr);
 
     $.ajax({
-        url: "/api/products/seller/6",
+        url: "/api/products/seller/" + dataAttr,
         type: "GET"
     }).then(
         function (data) {
@@ -66,6 +52,19 @@ $(document).ready(function () {
             });
         }
     );
+
+    $.get("/api/sellers/id/" + dataAttr, function (data) {
+        console.log("Seller");
+        console.log(data);
+        sellerEmailId = data.email;
+        $("#sellername").append(data.name);
+        $("#sellerPh").append(data.phone);
+        $("#sellerEmail").append(data.email);
+        $("#sellerLoc").append(data.location);
+
+        $("#modalname").append(data.name);
+    });
+
 
     $("#dropEmail").on("click", function (event) {
         event.preventDefault();

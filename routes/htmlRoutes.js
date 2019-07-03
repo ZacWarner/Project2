@@ -15,10 +15,8 @@ module.exports = function (app) {
   });
 
   // Seller public profile
-  app.get("/sellercover", function (req, res) {
-    let id = 6;
-    // app.get("/sellercover/:sellerid", function (req, res) {
-    //   let id = req.params.sellerid;
+  app.get("/sellercover/:sellerid", function (req, res) {
+    let id = req.params.sellerid;
     console.log("Id in htmlroute: " + id);
     res.render("pubProfile", { sellerId: id });
   });
