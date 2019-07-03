@@ -4,7 +4,7 @@
 var sellerEmailId = "";
 
 $.ajax({
-    url: "api/sellers/1",
+    url: "api/sellers/id/1",
     type: "GET"
 }).then(
     function (data) {
