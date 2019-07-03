@@ -33,6 +33,17 @@ module.exports = function (app) {
         });
     });
 
+    // Get product details on specific seller
+    app.get("/api/products/seller/:sellerid", function (req, res) {
+        db.Products.findAll({
+            where: {
+                LoginId: req.params.sellerid
+            }
+        }).then(function (results) {
+            res.json(results);
+        });
+    });
+
     // Create a new product
     app.post("/api/products/newproduct", function (req, res) {
         db.Products.create({
