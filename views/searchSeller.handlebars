@@ -1,16 +1,14 @@
 <!--Navbar-->
-{{#if user}}
+{{#if hbsObj.user}}
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="/"><img src="./assets/images/Icon.jpeg"><span>Agora</span></a>
-  <a class="navbar-brand page-headers"><span>Welcome: </span><span>{{user.username}}</span></a>
+  <a class="navbar-brand page-headers"><span>Welcome: </span><span>{{hbsObj.user.username}}</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  {{!-- <div>
-            <h3>{{user.username}}</h3>
-        </div> --}}
+
 
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
@@ -55,43 +53,26 @@
 {{/if}}
 <br><br><br><br>
 
-
-
-
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <button type="button" class="btn btn-outline-light btn-lg">Search</button>
-    <button type="button" class="btn btn-outline-light btn-lg dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="sr-only">Toggle Dropdown</span>
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Search</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div role="separator" class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
-
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <button type="button" class="btn btn-outline-secondary">Action</button>
-      <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="sr-only">Toggle Dropdown</span>
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <div role="separator" class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
+<div class="container">
+  <div class="row">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary dropdown-toggle m-0" type="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Dropdown</button>
+        <div class="dropdown-menu">
+          {{#each hbsObj.sellers}}
+          <a class="dropdown-item sellers" id="{{id}}" href="/api/sellers/id/{{id}}">{{name}}</a>
+          {{/each}}
+        </div>
       </div>
-
+      <input type="text" class="form-control" id="sellerSearch">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary m-0" id="sellerSubmit" type="button">Search!</button>
+      </div>
     </div>
-    <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
   </div>
-
-
 </div>
+
 
 <!--Javascript-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -101,24 +82,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/searchSeller.js"></script>
-=======
-  <input type="text" class="form-control searchBar" aria-label="Text input with segmented dropdown button" placeholder="Search...">
-</div>
 
-</div>
-
-<!--Start of card for seller info-->
-
-<div class="card">
-  <!-- <img src="../assets/images/ramen.jpg" class="card-img-top thumbnail" alt="..."> -->
-  <div class="card-body">
-    <h5 class="card-title">Top Ramen</h5>
-    <div class="productPrice">
-      <p>Price: $10</p>
-    </div>
-      <p class="card-text">Cooks in 3 minutes. Perfect for a quick meal. Nissin Top Ramen Noodles. Chicken
-        flavor.</p>
-      <a href="#" class="btn btn-primary">Contact Seller</a>
-  </div>
-</div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
