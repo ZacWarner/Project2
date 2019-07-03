@@ -32,9 +32,18 @@ module.exports = function (app) {
   });
   // Load products page
   app.get("/products", function (req, res) {
+    db.Products.findAll({}).then(function (data) {
+
+      let hbsObj = {
+        products: data,
+        user: req.user
+      };
+
+      res.render("products", { hbsObj: hbsObj });
+    });
     let you = req.user;
 
-    res.render("products", { user: you });
+
   });
 
   // Load products page and pass in a table by id
