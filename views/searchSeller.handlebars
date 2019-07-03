@@ -61,7 +61,7 @@
           aria-haspopup="true" aria-expanded="false">Dropdown</button>
         <div class="dropdown-menu">
           {{#each hbsObj.sellers}}
-          <a class="dropdown-item sellers" id="{{id}}" href="#">{{name}}</a>
+          <a class="dropdown-item sellers" id="{{id}}" href="/api/sellers/id/{{id}}">{{name}}</a>
           {{/each}}
         </div>
       </div>
