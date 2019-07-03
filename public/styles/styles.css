@@ -5,6 +5,7 @@ body{
     font-family: 'Noto Sans HK', sans-serif; 
     color: #006AA0;
     background-image: url(../assets/images/computers1.jpg);
+    background-repeat: no-repeat;
 }
 
 .navbar-brand img{
@@ -35,7 +36,7 @@ span{
 
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link:hover{
-    color:  #006AA0
+    color:  #006AA0;
 }
 
 h1{
@@ -83,7 +84,7 @@ input[type=text] {
 
   .jumbotron{
     margin-bottom: 0;
-    background-color: rgb(246, 247, 248);
+    background-color: rgba(246, 247, 248, 0.1);
 }
 
 .column .items{
@@ -142,4 +143,31 @@ input[type=text] {
 }
 .page-headers{
     color: rgb(89, 195, 209)
+}
+
+
+.searchBar{
+    overflow: hidden;
+    background: white;
+    height: 3rem;
+    margin-right: 5rem;
+    margin-top: 5rem;
+
+}
+
+button{
+    margin-top: 5rem;
+    margin-left: 5rem;
+}
+
+.thumbnail{
+    width: 200px;
+    height: 200px;
+    margin: 2%;
+    border-radius: 50%;
+}
+.product-card{
+    color: white;
+    background-color: rgba(246, 247, 248, 0.1)
+
 }

@@ -1,5 +1,5 @@
-/* eslint-disable indent */
 /* eslint-disable prettier/prettier */
+/* eslint-disable indent */
 $.ajax({
     url: "api/sellers/2",
     type: "GET"
@@ -24,7 +24,7 @@ $.ajax({
             products.attr("src", data[i].picture);
             products.attr("width", "200");
             products.attr("height", "200");
-            products.addClass("m-1")
+            products.addClass("m-1");
             $(".product-images").append(products);
         }
     }

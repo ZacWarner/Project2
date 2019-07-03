@@ -1,17 +1,23 @@
+/* eslint-disable prettier/prettier */
 var db = require("../models");
 
 module.exports = function (app) {
   // Load index page
   app.get("/", function (req, res) {
-    res.render("index");
+    let you = req.user;
+
+    res.render("index", { user: you })
   });
   // Load Signup page
   app.get("/signup", function (req, res) {
+
     res.render("signup");
   });
   // Load Search page
-  app.get("/search", function (req, res) {
-    res.render("pubProfile");
+  app.get("/sellercover/:sellerid", function (req, res) {
+    // app.get("/products", function (req, res) {
+    let id = req.params.sellerid;
+    res.render("pubProfile", { sellerId: id });
   });
 
   // Load Login page
@@ -20,7 +26,12 @@ module.exports = function (app) {
   });
   // Load searchSeller page
   app.get("/searchSeller", function (req, res) {
-    res.render("searchSeller");
+    let you = req.user;
+    res.render("searchSeller", { user: you });
+  });
+  // Load products page
+  app.get("/products", function (req, res) {
+    res.render("products");
   });
 
   // Load products page and pass in a table by id
