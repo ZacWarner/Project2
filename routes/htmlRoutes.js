@@ -19,8 +19,16 @@ module.exports = function (app) {
   });
   // Load searchSeller page
   app.get("/searchSeller", function (req, res) {
-    let you = req.user;
-    res.render("searchSeller", { user: you });
+    db.Seller.findAll({}).then(function (data) {
+
+      let hbsObj = {
+        sellers: data,
+        user: req.user
+      };
+      res.render("searchSeller", { hbsObj: hbsObj });
+      console.log(hbsObj.sellers.name);
+    });
+
   });
   // Load products page
   app.get("/products", function (req, res) {
