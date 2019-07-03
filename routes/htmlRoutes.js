@@ -14,14 +14,14 @@ module.exports = function (app) {
     res.render("signup");
   });
   // Load Search page
-  // app.get("/sellercover", function (req, res) {
-  //   res.render("pubProfile");
-  // });
-
-  app.get("/sellercover/:sellerid", function (req, res) {
-    let id = req.params.sellerid;
-    res.render("pubProfile", { sellerId: id });
+  app.get("/sellercover", function (req, res) {
+    res.render("pubProfile");
   });
+
+  // app.get("/sellercover/:sellerid", function (req, res) {
+  //   let id = req.params.sellerid;
+  //   res.render("pubProfile", { sellerId: id });
+  // });
 
   // Load Login page
   app.get("/login", function (req, res) {

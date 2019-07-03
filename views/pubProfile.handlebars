@@ -1,8 +1,9 @@
-<head>
-    <!-- Slick JS -->
-    <script type="text/javascript" src="js/pubProfile.js"></script>
-    <script type="text/javascript" src="js/slick.min.js"></script>
-</head>
+{{!-- Drop email button brings up a modal to take user email id and message. 
+Send button in modal connected to SendGrid API, sends email to seller --}}
+{{!-- Products posted by seller runs on a carousel below seller details--}}
+{{!-- Click on product image should take to approprite product page --}}
+
+
 <!--Navbar-->
 {{#if user}}
 
@@ -59,7 +60,6 @@
 
 <div class="card mx-5" style="">
     <div class="card-body">
-        {{!-- <h5 class="card-title" id="sellername">Meena Krs {{sellerId}}</h5> --}}
         <h5 class="card-title" id="sellername"></h5>
         <div class="card-text">
             <div class="row">
@@ -126,3 +126,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+
+<!-- Slick JS -->
+<script type="text/javascript" src="js/slick.min.js"></script>
+
+<script type="text/javascript" src="js/pubProfile.js"></script>
