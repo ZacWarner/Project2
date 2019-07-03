@@ -1,48 +1,133 @@
-   <!--Navbar-->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#"><img src="assets/images/Icon.jpeg"><span>Agora</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+{{!-- Drop email button brings up a modal to take user email id and message. 
+Send button in modal connected to SendGrid API, sends email to seller --}}
+{{!-- Products posted by seller runs on a carousel below seller details--}}
+{{!-- Click on product image should take to approprite product page --}}
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item"><a class="nav-link">Search Products</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" id="findSeller">Find Seller</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" id="signUp" href="/signup">Sign Up</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" id="logIn" href="/login">Login</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+
+<!--Navbar-->
+{{#if user}}
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/"><img src="./assets/images/Icon.jpeg"><span>Agora</span></a>
+    <a class="navbar-brand page-headers"><span>Welcome: </span><span>{{user.username}}</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item"><a class="nav-link">Search Products</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" id="findSeller" href="/searchSeller">Find Seller</a>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" id="logOut" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{{else}}
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/"><img src="./assets/images/Icon.jpeg"><span>Agora</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" id="findProduct" href="/products">Search Products</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" id="findSeller" href="/searchSeller">Find Seller</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" id="signUp" href="/signup">Sign Up</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" id="logIn" href="/login">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{{/if}}
 <br><br><br><br>
 
-   <!--Public Info Card-->
+<!--Public Info Card-->
 
-   <div class="card" style="">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Seller Name</h5>
-    <p class="card-text">Some stuff about the seller.</p>
-  </div>
-
-
-
-   <!--Items from this seller by category-->
-<div class="input-group">
-  <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-  <div class="input-group-append">
-    <button class="btn btn-outline-info" type="button">Search</button>
-  </div>
+<div class="card mx-5" style="">
+    <div class="card-body">
+        <h5 class="card-title" id="sellername"></h5>
+        <div class="card-text">
+            <div class="row">
+                <div class="col-md-5">
+                    <p id="sellerPh">Phone: </p>
+                    <p id="sellerEmail">Email: </p>
+                </div>
+                <div class="col-md-5">
+                    <p id="sellerLoc">Location: </p>
+                    <button id="dropEmail" class="btn btn-info m-0">Drop a message to this seller</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br>
+<div class="mx-5">
+    <h2>Products by this seller</h2>
+    <hr>
+    <div class="product-images">
+    </div>
 </div>
+
+{{!-- Modal to send email --}}
+<div id="emailmodal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalname">Drop message to </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-row">
+                        <label class="field-headers" for="inputUserEmail">Your email</label>
+                        <input type="email" class="form-control" id="inputUserEmail" placeholder="Email">
+                    </div>
+                    <div class="form-row">
+                        <label class="field-headers" for="inputMessage">Message</label>
+                        <textarea rows="5" form="usrform" class="form-control" id="inputMessage"
+                            placeholder="Your message goes here"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" id="sendemail" class="btn btn-info">Send</button>
+                    </div>
+                    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span> <span class="msg"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- bootstrap js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+<!-- Slick JS -->
+<script type="text/javascript" src="js/slick.min.js"></script>
+
+<script type="text/javascript" src="js/pubProfile.js"></script>
