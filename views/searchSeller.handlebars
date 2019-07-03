@@ -61,11 +61,14 @@
           aria-haspopup="true" aria-expanded="false">Dropdown</button>
         <div class="dropdown-menu">
           {{#each hbsObj.sellers}}
-          <a class="dropdown-item" href="#">{{name}}</a>
+          <a class="dropdown-item sellers" id="{{id}}" href="#">{{name}}</a>
           {{/each}}
         </div>
       </div>
-      <input type="text" class="form-control" aria-label="Text input with dropdown button">
+      <input type="text" class="form-control" id="sellerSearch">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary m-0" id="sellerSubmit" type="button">Search!</button>
+      </div>
     </div>
   </div>
 </div>
@@ -79,3 +82,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/searchSeller.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

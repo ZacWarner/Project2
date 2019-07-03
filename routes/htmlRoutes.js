@@ -26,7 +26,7 @@ module.exports = function (app) {
         user: req.user
       };
       res.render("searchSeller", { hbsObj: hbsObj });
-      console.log(hbsObj.sellers.name);
+
     });
 
   });
