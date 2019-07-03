@@ -13,10 +13,21 @@ module.exports = function (app) {
   });
 
   // Get specific seller details
-  app.get("/api/sellers/:sellerid", function (req, res) {
+  app.get("/api/sellers/id/:sellerid", function (req, res) {
     db.Seller.findOne({
       where: {
         id: req.params.sellerid
+      }
+    }).then(function (results) {
+      res.json(results);
+    });
+  });
+
+  //get specific seller based on name
+  app.get("/api/sellers/name/:sellerName", function (req, res) {
+    db.Seller.findOne({
+      where: {
+        name: req.params.sellerName
       }
     }).then(function (results) {
       res.json(results);
