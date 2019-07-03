@@ -15,13 +15,20 @@ module.exports = function (app) {
   });
   // Load Search page
   app.get("/sellercover", function (req, res) {
-    res.render("pubProfile");
+    let hbsObj = {
+      user: req.user
+    };
+    res.render("pubProfile", { hbsObj: hbsObj });
   });
 
-  // app.get("/sellercover/:sellerid", function (req, res) {
-  //   let id = req.params.sellerid;
-  //   res.render("pubProfile", { sellerId: id });
-  // });
+  app.get("/sellercover/:sellerid", function (req, res) {
+    let hbsObj = {
+      user: req.user,
+      sellerId: req.params.sellerid
+    };
+
+    res.render("pubProfile", { hbsObj: hbsObj });
+  });
 
   // Load Login page
   app.get("/login", function (req, res) {
