@@ -9,7 +9,7 @@ $(document).ready(function () {
         $.get("/api/sellers/name/" + sellerName).then(function (data) {
             let seller = data;
 
-            window.location.replace("/api/sellers/id/" + seller.LoginId);
+            window.location.replace("/sellercover/" + seller.LoginId);
 
         });
     })
