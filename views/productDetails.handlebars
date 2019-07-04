@@ -1,0 +1,89 @@
+<!--Navbar-->
+<div id="product-background" style="background:
+linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+background-color: #131313;
+background-size: 20px 20px;">
+    <!--Navbar-->
+
+    {{#if hbsObj.user}}
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/"><img src="./assets/images/Icon.jpeg"><span>Agora</span></a>
+        <a class="navbar-brand page-headers"><span>Welcome: </span><span>{{user.username}}</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" id="findProduct" href="/products">Search Products</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" id="findSeller" href="/searchSeller">Find Seller</a>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" id="logOut" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {{else}}
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/"><img src="./assets/images/Icon.jpeg"><span>Agora</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" id="findProduct" href="/products">Search Products</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" id="findSeller" href="/searchSeller">Find Seller</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" id="signUp" href="/signup">Sign Up</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" id="logIn" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {{/if}}
+    <br><br><br><br>
+
+    <div id="products" class="offset">
+
+        <div class="col-12 jumbotron">
+            <div class="col-12 text-center">
+                <h2 class="page-headers">Products</h2>
+            </div>
+
+            <div class="product-card">
+                <img src="{{hbsObj.products.picture}}" class="card-img-top thumbnail" alt="...">
+                <div class="product-card card-body">
+                    <h5 class="card-title">{{hbsObj.products.name}}</h5>
+                    <div class="productPrice">
+                        <p>Price: ${{hbsObj.products.price}}</p>
+                    </div>
+                    <p class="card-text">{{hbsObj.products.description}}</p>
+                    <a href="/sellercover/{{hbsObj.products.id}}" class="btn btn-primary">Contact Seller</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</div>

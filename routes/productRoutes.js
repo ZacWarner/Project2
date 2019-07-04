@@ -17,8 +17,14 @@ module.exports = function (app) {
             where: {
                 id: req.params.productid
             }
-        }).then(function (results) {
-            res.json(results);
+        }).then(function (result) {
+            // res.json(results);
+            let hbsObj = {
+                products: result,
+                user: req.user
+            };
+            console.log(hbsObj.products);
+            res.render("productDetails", { hbsObj: hbsObj });
         });
     });
 

@@ -35,7 +35,7 @@ $(document).ready(function () {
                 var purchase = $("<a>");
                 //Route to be updated 
                 //Redirect to specific product page
-                purchase.attr("href", "/products");
+                purchase.attr("href", "/api/products/" + data[i].id);
                 purchase.append(img);
 
                 productdiv.append(title, purchase);
