@@ -8,7 +8,7 @@ Send button in modal connected to SendGrid API, sends email to seller --}}
 {{#if user}}
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="/"><img src="./assets/images/Icon.jpeg"><span>Agora</span></a>
+    <a class="navbar-brand" href="/"><img src="/assets/images/Icon.jpeg"><span>Agora</span></a>
     <a class="navbar-brand page-headers"><span>Welcome: </span><span>{{user.username}}</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@ Send button in modal connected to SendGrid API, sends email to seller --}}
 {{else}}
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="/"><img src="./assets/images/Icon.jpeg"><span>Agora</span></a>
+    <a class="navbar-brand" href="/"><img src="/assets/images/Icon.jpeg"><span>Agora</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -58,9 +58,11 @@ Send button in modal connected to SendGrid API, sends email to seller --}}
 
 <!--Public Info Card-->
 
+
+
 <div class="card mx-5" style="">
     <div class="card-body">
-        <h5 class="card-title" id="sellername"></h5>
+        <h5 class="card-title" id="sellername" data-sellerid={{sellerId}}></h5>
         <div class="card-text">
             <div class="row">
                 <div class="col-md-5">
@@ -128,6 +130,6 @@ Send button in modal connected to SendGrid API, sends email to seller --}}
     crossorigin="anonymous"></script>
 
 <!-- Slick JS -->
-<script type="text/javascript" src="js/slick.min.js"></script>
+<script type="text/javascript" src="/js/slick.min.js"></script>
 
-<script type="text/javascript" src="js/pubProfile.js"></script>
+<script type="text/javascript" src="/js/pubProfile.js"></script>
