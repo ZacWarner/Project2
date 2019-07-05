@@ -22,6 +22,17 @@ module.exports = function (app) {
         });
     });
 
+    // Get product specific reviews
+    app.get("/api/reviews/product/:productid", function (req, res) {
+        db.Reviews.findAll({
+            where: {
+                product_id: req.params.productid
+            }
+        }).then(function (results) {
+            res.json(results);
+        });
+    });
+
     // Create a new review
     app.post("/api/reviews/newreview", function (req, res) {
         db.Reviews.create({

@@ -2,8 +2,12 @@
 Send button in modal connected to SendGrid API, sends email to seller --}}
 {{!-- Products posted by seller runs on a carousel below seller details--}}
 {{!-- Click on product image should take to approprite product page --}}
-
-
+<style>
+    #inputReviewerName,
+    #inputProdId {
+        width: 100%;
+    }
+</style>
 <!--Navbar-->
 {{#if user}}
 
@@ -60,28 +64,41 @@ Send button in modal connected to SendGrid API, sends email to seller --}}
 
 
 
-<div class="card mx-5" style="">
-    <div class="card-body">
+<div class="card mx-5 product-card" style="">
+    <div class="card-body product-card">
         <h5 class="card-title" id="sellername" data-sellerid={{sellerId}}></h5>
         <div class="card-text">
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <p id="sellerPh">Phone: </p>
                     <p id="sellerEmail">Email: </p>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <p id="sellerLoc">Location: </p>
-                    <button id="dropEmail" class="btn btn-info m-0">Drop a message to this seller</button>
+                    <button id="dropEmail" class="btn btn-primary m-0">Drop a message to this seller</button>
                 </div>
             </div>
         </div>
     </div>
 </div><br>
 <div class="mx-5">
-    <h2>Products by this seller</h2>
+    <h2 style="color:darkturquoise">Products by this seller</h2>
     <hr>
     <div class="product-images">
     </div>
+</div>
+
+<div id="review-div" class="m-5">
+    <div class="row">
+        <div class="col-10">
+            <h2 style="color:darkturquoise">User Reviews</h2>
+        </div>
+        <div class="col-2">
+            <button id="addreview" class="btn btn-primary m-0">Add Review</button>
+        </div>
+    </div>
+    <hr>
+
 </div>
 
 {{!-- Modal to send email --}}
@@ -106,7 +123,45 @@ Send button in modal connected to SendGrid API, sends email to seller --}}
                             placeholder="Your message goes here"></textarea>
                     </div>
                     <div class="form-row">
-                        <button type="submit" id="sendemail" class="btn btn-info">Send</button>
+                        <button type="submit" id="sendemail" class="btn btn-primary">Send</button>
+                    </div>
+                    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span> <span class="msg"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Modal to add review --}}
+<div id="reviewmodal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalname">Add Review!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-row">
+                        <label class="field-headers" for="inputReviewerName">Name</label>
+                        <input type="text" class="form-control" id="inputReviewerName" placeholder="Your Name">
+                    </div>
+                    <div class="form-row">
+                        <label class="field-headers" for="inputProdId">Product ID</label>
+                        <input type="text" class="form-control" id="inputProdId" placeholder="ID">
+                    </div>
+                    <div class="form-row">
+                        <label class="field-headers" for="inputReview">Review</label>
+                        <textarea rows="5" form="usrform" class="form-control" id="inputReview"
+                            placeholder="Add comment.."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" id="postreview" class="btn btn-primary">Post</button>
                     </div>
                     <div style="display: none" id="alert" class="alert alert-danger" role="alert">
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>

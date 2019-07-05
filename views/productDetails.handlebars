@@ -13,7 +13,7 @@ background-size: 20px 20px;">
     {{#if hbsObj.user}}
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="/"><img src="./assets/images/Icon.jpeg"><span>Agora</span></a>
+        <a class="navbar-brand" href="/"><img src="/assets/images/Icon.jpeg"><span>Agora</span></a>
         <a class="navbar-brand page-headers"><span>Welcome: </span><span>{{user.username}}</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@ background-size: 20px 20px;">
     {{else}}
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="/"><img src="./assets/images/Icon.jpeg"><span>Agora</span></a>
+        <a class="navbar-brand" href="/"><img src="/assets/images/Icon.jpeg"><span>Agora</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -67,10 +67,11 @@ background-size: 20px 20px;">
 
         <div class="col-12 jumbotron">
             <div class="col-12 text-center">
-                <h2 class="page-headers">Products</h2>
+                <h2 class="page-headers">Product Details</h2>
             </div>
 
-            <div class="product-card">
+            <div id="tracker" class="product-card" data-sellerid={{hbsObj.products.LoginId}}
+                data-prodid={{hbsObj.products.id}}>
                 <img src="{{hbsObj.products.picture}}" class="card-img-top thumbnail" alt="...">
                 <div class="product-card card-body">
                     <h5 class="card-title">{{hbsObj.products.name}}</h5>
@@ -78,12 +79,71 @@ background-size: 20px 20px;">
                         <p>Price: ${{hbsObj.products.price}}</p>
                     </div>
                     <p class="card-text">{{hbsObj.products.description}}</p>
-                    <a href="/sellercover/{{hbsObj.products.id}}" class="btn btn-primary">Contact Seller</a>
+                    <button id="dropEmail" class="btn btn-primary m-0">Send message to seller</button>
                 </div>
             </div>
 
         </div>
     </div>
 
+    <div id="review-div" class="m-5">
+        <div class="row">
+            <div class="col-10">
+                <h2 style="color:darkturquoise">User Reviews</h2>
+            </div>
+            <div class="col-2">
+                <button id="addreview" class="btn btn-primary m-0">Add Review</button>
+            </div>
+        </div>
+        <hr>
+
+    </div>
+
 </div>
+
+{{!-- Modal to send email --}}
+<div id="emailmodal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalname">Drop message to </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-row">
+                        <label class="field-headers" for="inputUserEmail">Your email</label>
+                        <input type="email" class="form-control" id="inputUserEmail" placeholder="Email">
+                    </div>
+                    <div class="form-row">
+                        <label class="field-headers" for="inputMessage">Message</label>
+                        <textarea rows="5" form="usrform" class="form-control" id="inputMessage"
+                            placeholder="Your message goes here"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" id="sendemail" class="btn btn-info">Send</button>
+                    </div>
+                    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span> <span class="msg"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- bootstrap js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/js/productDetails.js"></script>

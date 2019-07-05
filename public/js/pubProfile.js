@@ -19,22 +19,20 @@ $(document).ready(function () {
             for (i in data) {
                 console.log(data[i].picture);
 
-                var productdiv = $("<div>");
-                productdiv.addClass("card bg-info slide mx-2");
+                let productdiv = $("<div>");
+                productdiv.addClass("card product-card slide mx-2");
 
-                var title = $("<div>");
+                let title = $("<div>");
                 title.html(data[i].name + ", $" + data[i].price);
                 title.addClass("card-title text-center");
 
-                var img = $("<img>");
+                let img = $("<img>");
                 img.addClass("card-img-top image");
                 img.attr("src", data[i].picture);
                 img.attr("width", "200");
                 img.attr("height", "200");
 
-                var purchase = $("<a>");
-                //Route to be updated 
-                //Redirect to specific product page
+                let purchase = $("<a>");
                 purchase.attr("href", "/api/products/" + data[i].id);
                 purchase.append(img);
 
@@ -57,12 +55,36 @@ $(document).ready(function () {
         console.log("Seller");
         console.log(data);
         sellerEmailId = data.email;
-        $("#sellername").append(data.name);
+        $("#sellername").prepend(data.name);
         $("#sellerPh").append(data.phone);
         $("#sellerEmail").append(data.email);
         $("#sellerLoc").append(data.location);
 
         $("#modalname").append(data.name);
+    });
+
+    $.get("/api/reviews/seller/" + dataAttr, function (data) {
+        console.log("Reviews");
+        console.log(data);
+
+        for (i in data) {
+            let reviewcard = $("<div>");
+            reviewcard.addClass("card product-card m-1");
+            reviewcard.attr("data-reviewid", data[i].id);
+
+            let title = $("<div>");
+            title.html("<strong><i>" + data[i].reviewer_name + "</i></strong>");
+            title.addClass("card-title mx-3");
+
+            let review = $("<div>");
+            review.html(data[i].review);
+            review.addClass("card-body");
+
+            reviewcard.append(title, review);
+
+            $("#review-div").append(reviewcard);
+        }
+
     });
 
 
@@ -72,8 +94,8 @@ $(document).ready(function () {
     });
 
     $("#sendemail").on("click", function () {
-        var usrEmail = $("#inputUserEmail").val().trim();
-        var msg = $("#inputMessage").val().trim();
+        let usrEmail = $("#inputUserEmail").val().trim();
+        let msg = $("#inputMessage").val().trim();
 
         $.post("/api/sellers/sendemail", {
             to: sellerEmailId,
@@ -86,4 +108,23 @@ $(document).ready(function () {
         });
     });
 
+    $("#addreview").on("click", function (event) {
+        event.preventDefault();
+        $("#reviewmodal").modal("show");
+    });
+
+    $("#postreview").on("click", function () {
+        let reviewerName = $("#inputReviewerName").val().trim();
+        let review = $("#inputReview").val().trim();
+        let prodId = $("#inputProdId").val().trim();
+
+        $.post("/api/reviews/newreview", {
+            reviewer_name: reviewerName,
+            review: review,
+            product_id: prodId,
+            sellerid: dataAttr
+        }).then(function (data) {
+            console.log("New comment added!");
+        });
+    });
 });
