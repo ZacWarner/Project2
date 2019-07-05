@@ -67,15 +67,50 @@ background-size: 20px 20px;">
 
         <div class="col-12 jumbotron">
             <div class="col-12 text-center">
-                <h2 class="page-headers">Products</h2>
-            </div>
+                <form id="filterSearch">
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <select id="category" class="form-control">
+                                <option selected>Choose Category</option>
 
-            {{#each hbsObj.products}}
-            {{> cards/products-block}}
-            {{/each}}
-
+                            </select>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <select id="pricerange" class="form-control">
+                                <option selected>Choose Price Range</option>
+                                <option>0 - 100</option>
+                                <option>100 - 1000</option>
+                                <option>1000 - 5000</option>
+                                <option>5000 and more</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <button type="submit" class="btn btn-info m-0">Search</button>
+                        </div>
+                </form>
+            </div><br>
+            <h2 class="page-headers">Products</h2>
         </div>
+
+        {{#each hbsObj.products}}
+        {{> cards/products-block}}
+        {{/each}}
+
     </div>
+</div>
 
 </div>
 </div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- bootstrap js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+<script src="js/products.js"></script>
