@@ -33,8 +33,6 @@ $(document).ready(function () {
                 img.attr("height", "200");
 
                 let purchase = $("<a>");
-                //Route to be updated 
-                //Redirect to specific product page
                 purchase.attr("href", "/api/products/" + data[i].id);
                 purchase.append(img);
 
