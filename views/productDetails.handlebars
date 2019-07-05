@@ -70,7 +70,8 @@ background-size: 20px 20px;">
                 <h2 class="page-headers">Product Details</h2>
             </div>
 
-            <div id="trackseller" class="product-card" data-sellerid={{hbsObj.products.LoginId}}>
+            <div id="tracker" class="product-card" data-sellerid={{hbsObj.products.LoginId}}
+                data-prodid={{hbsObj.products.id}}>
                 <img src="{{hbsObj.products.picture}}" class="card-img-top thumbnail" alt="...">
                 <div class="product-card card-body">
                     <h5 class="card-title">{{hbsObj.products.name}}</h5>
@@ -83,6 +84,19 @@ background-size: 20px 20px;">
             </div>
 
         </div>
+    </div>
+
+    <div id="review-div" class="m-5">
+        <div class="row">
+            <div class="col-10">
+                <h2 style="color:darkturquoise">User Reviews</h2>
+            </div>
+            <div class="col-2">
+                <button id="addreview" class="btn btn-primary m-0">Add Review</button>
+            </div>
+        </div>
+        <hr>
+
     </div>
 
 </div>
