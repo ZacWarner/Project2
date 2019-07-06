@@ -12,7 +12,7 @@ background-size: 20px 20px;">
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="/"><img src="/assets/images/Icon.jpeg"><span>Agora</span></a>
-    <a class="navbar-brand page-headers"><span>Welcome: </span><span>{{sellerObj.sellername}}</span></a>
+    <a class="navbar-brand page-headers"><span style="color: darkturquoise">Welcome: </span><span style="color: darkturquoise">{{sellerObj.sellername}}</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -84,23 +84,7 @@ background-size: 20px 20px;">
           <input type="text" class="form-control" style="width: 80%" id="prodDesc" placeholder="Brief Description">
         </div>
       </div>
-      <div class="row">
-        <div class="form-row">
-          <div class="form-group col-md-3">
-          </div>
-          <label for="inputPrice" style="color: darkturquoise" for="prodPrice">Price</label>
-          <input type="text" class="form-control" id="prodPrice" placeholder="$0.00">
-          <div class="form-group col-md-6">
-            <label style="color: darkturquoise" for="prodImg">Image</label>
-            <input type="text" class="form-control" style="width: 80%" id="prodImg" placeholder="Image">
-          </div>
-          <input type="file" id="file-input">
-          <p id="status"></p>
-        </div>
-      </div>
-
-
-
+      
       <div class="form-row">
 
         <div class="form-group col-md-4">
@@ -113,6 +97,15 @@ background-size: 20px 20px;">
             <option>Supplies</option>
           </select>
         </div>
+        <div class="form-group">
+          <label for="inputPrice" style="color: darkturquoise" for="prodPrice">Price</label>
+          <input type="text" class="form-control" id="prodPrice" placeholder="$0.00">
+        </div>
+        
+        <div class="form-group" style="margin-left: 1%">
+    <label for="exampleFormControlFile1" style="color: darkturquoise">Product Image</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1" style="color: darkturquoise">
+  </div>
       </div>
       <button id="postProd" class="btn btn-info">Add</button>
     </form>
@@ -129,38 +122,6 @@ background-size: 20px 20px;">
 
       </div>
 
-<<<<<<< HEAD
-<!--Add New Product-->
-
-<div class="jumbotron">
-  <h1 class="display-4">New Product</h1>
-  <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Product Name</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Product Name">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Description</label>
-      <input type="text" class="form-control" id="inputPassword4" placeholder="Brief Description">
-    </div>
-  </div>
-  <div class="form-row">
-  <div class="form-group col-md-4">
-    <label for="inputAddress">Price</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="$0.00">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputState">Category</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>Books</option>
-       <option>Electronics</option>
-       <option>Food</option>
-       <option>Supplies</option>
-      </select>
-  </div>
-=======
     </div>
   </div>
 
@@ -200,31 +161,9 @@ background-size: 20px 20px;">
         </form>
       </div>
     </div>
->>>>>>> a2d40bbaa6b2dcfa9de2f947ad681dff0ff40886
   </div>
 </div>
 
-<<<<<<< HEAD
-
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      
-    </div>
-    
-    <div class="form-group col-md-2">
-      
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      
-    </div>
-  </div>
-  
-</form>
-  <hr class="my-4">
-  <a class="btn btn-info btn-lg" href="#" role="button">Add</a>
-=======
 {{!-- Modal to edit product info --}}
 <div id="prodEditModal" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
@@ -261,7 +200,6 @@ background-size: 20px 20px;">
       </div>
     </div>
   </div>
->>>>>>> a2d40bbaa6b2dcfa9de2f947ad681dff0ff40886
 </div>
 
 <!-- jQuery -->
