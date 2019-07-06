@@ -261,8 +261,8 @@ $(document).ready(function () {
     /*
      Bind listeners when the page loads.
     */
-    // (() => {
-    //     document.getElementById("file-inpu"').onchange = initUpload;
-    // })();
+    (() => {
+        document.getElementById("file-input").onchange = initUpload;
+    })();
 
 });
