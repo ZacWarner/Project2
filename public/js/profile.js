@@ -188,7 +188,7 @@ $(document).ready(function () {
         let prodPrice = $("#prodPrice").val();
         let prodDesc = $("#prodDesc").val().trim();
         let prodCategory = $("#prodCategory").val().trim();
-        let prodImg = "https://meenakrs.s3-us-west-1.amazonaws.com/smile.jpg";
+        let prodImg = $("#prodImg").val().trim();
 
         console.log(prodName + ", " + prodPrice + ", " + prodDesc + ", " + prodCategory + ", " + prodImg);
         $.post("/api/products/newproduct", {
