@@ -210,6 +210,7 @@ $(document).ready(function () {
       Function to carry out the actual PUT request to S3 using the signed request from the app.
     */
     function uploadFile(file, signedRequest, url) {
+        console.log("Upload File");
         const xhr = new XMLHttpRequest();
         xhr.open('PUT', signedRequest);
         xhr.onreadystatechange = () => {
@@ -231,6 +232,7 @@ $(document).ready(function () {
       request.
     */
     function getSignedRequest(file) {
+        console.log("Upload Signed");
         const xhr = new XMLHttpRequest();
         xhr.open('GET', `/sign-s3?file-name=${file.name}&file-type=${file.type}`);
         xhr.onreadystatechange = () => {
@@ -251,6 +253,7 @@ $(document).ready(function () {
      start upload procedure by asking for a signed request from the app.
     */
     function initUpload() {
+        console.log("Upload Init");
         const files = document.getElementById("file-input").files;
         const file = files[0];
         if (file === null) {
@@ -262,7 +265,7 @@ $(document).ready(function () {
      Bind listeners when the page loads.
     */
     (() => {
-        document.getElementById("file-input").onchange = initUpload;
+        document.getElementById("prodImg").onchange = initUpload;
     })();
 
 });
