@@ -100,7 +100,7 @@ $(document).ready(function () {
             phone: phone,
             location: loc,
         }).then(function (data) {
-            window.location.replace("/");
+            window.location.replace("/profile/" + data.id + "/" + data.username);
             console.log("created new seller");
         });
     };
