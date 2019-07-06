@@ -40,14 +40,14 @@ $(document).ready(function () {
             txt.html(data[i].description);
 
             let updateme = $("<button>");
-            updateme.addClass("updateMe btn btn-primary m-0");
+            updateme.addClass("updateMe btn btn-info m-0");
             updateme.attr("data-name", data[i].name);
             updateme.attr("data-price", data[i].price);
             updateme.attr("data-id", data[i].id);
             updateme.text("update");
 
             let del = $("<button>");
-            del.addClass("deleteProd btn btn-primary m-0 ml-2");
+            del.addClass("deleteProd btn btn-danger m-0 ml-2");
             del.attr("data-id", data[i].id);
             del.text("delete");
 
