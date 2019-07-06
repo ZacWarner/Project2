@@ -44,9 +44,9 @@ $(document).ready(function () {
         if (!newUsr.username || !newUsr.password) {
             return;
         }
-
+        let key = "13dfe254ebf93650d6bf38984d929d97";
         // let queryUrl = "http://apilayer.net/api/check?access_key=" + (process.env.EMAIL_VALIDATION_KEY) + "&email=" + newUsr.username;
-        let queryUrl = "http://apilayer.net/api/check?access_key=13dfe254ebf93650d6bf38984d929d97&email=" + newUsr.username;
+        let queryUrl = "http://apilayer.net/api/check?access_key=" + key + "&email=" + newUsr.username;
         $.ajax({
             url: queryUrl,
             method: "GET"
