@@ -41,6 +41,8 @@ $(document).ready(function () {
 
             let updateme = $("<button>");
             updateme.addClass("updateMe btn btn-primary m-0");
+            updateme.attr("data-name", data[i].name);
+            updateme.attr("data-price", data[i].price);
             updateme.attr("data-id", data[i].id);
             updateme.text("update");
 
@@ -67,6 +69,10 @@ $(document).ready(function () {
         $("#sellerEmail").append(data.email);
         $("#sellerLoc").append(data.location);
         sellerIdLocal = data.id;
+
+        $("#inputMyName").attr("value", data.name);
+        $("#inputMyPh").attr("value", data.phone);
+        $("#inputMyLoc").attr("value", data.location);
     });
 
     $.get("/api/reviews/seller/" + dataAttr, function (data) {
@@ -128,6 +134,10 @@ $(document).ready(function () {
     $(document).on("click", ".updateMe", function (event) {
         event.preventDefault();
         prodIdUpdate = $(this).attr("data-id");
+
+        $("#inputProdName").attr("value", $(this).attr("data-name"));
+        $("#inputProdPrice").attr("value", $(this).attr("data-price"));
+
         console.log("prod id: " + prodIdUpdate);
         $("#prodEditModal").modal("show");
     });
