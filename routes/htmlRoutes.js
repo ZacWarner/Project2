@@ -21,6 +21,16 @@ module.exports = function (app) {
     res.render("pubProfile", { sellerId: id });
   });
 
+  // Seller private profile
+  app.get("/profile/:sellerid/:sellername", function (req, res) {
+    let sellerObj = {
+      sellerid: req.params.sellerId,
+      sellername: req.params.sellername
+    };
+    //console.log("Id in htmlroute: " + id);
+    res.render("profile", { sellerObj: sellerObj });
+  });
+
   // Load Login page
   app.get("/login", function (req, res) {
     res.render("login");
