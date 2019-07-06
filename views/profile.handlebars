@@ -66,53 +66,56 @@ background-size: 20px 20px;">
 </div>
 
 <!--Add New Product-->
-<div class="jumbotron" id="product-management">
-  <h1 class="display-4" style="color: darkturquoise">Product Management</h1>
-  <p class="lead" style="color: darkturquoise">Add a new product.</p>
-  <hr class="my-4">
 
-<form>
-  <div class="row">
-    <div class="form-group col-md-6">
-      <label style="color: darkturquoise">Product Name</label>
-      <input type="text" class="form-control" style="width: 80%" placeholder="Product Name">
-    </div>
-    <div class="form-group col-md-6">
-      <label style="color: darkturquoise">Description</label>
-      <input type="text" class="form-control" style="width: 80%" placeholder="Brief Description">
-    </div>
-  </div>
-  <div class="row">
+<div class="jumbotron">
+  <h1 class="display-4">New Product</h1>
+  <form>
   <div class="form-row">
-      <div class="form-group col-md-3">
-          </div>
-    <label for="inputPrice" style="color: darkturquoise">Price</label>
-    <input type="text" class="form-control" id="inputPrice" placeholder="$0.00">
     <div class="form-group col-md-6">
-      <label style="color: darkturquoise">Image</label>
-      <input type="text" class="form-control" style="width: 80%" placeholder="Image">
+      <label for="inputEmail4">Product Name</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Product Name">
     </div>
-    <button class="btn btn-info">Upload</button>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Description</label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Brief Description">
+    </div>
   </div>
-  </div>
-
-  
-
   <div class="form-row">
-    
-    <div class="form-group col-md-4">
-      <label for="inputCategory" style="color: darkturquoise">Category</label>
+  <div class="form-group col-md-4">
+    <label for="inputAddress">Price</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="$0.00">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputState">Category</label>
       <select id="inputState" class="form-control">
         <option selected>Choose...</option>
         <option>Books</option>
-        <option>Electronics</option>
-        <option>Food</option>
-        <option>Supplies</option>
+       <option>Electronics</option>
+       <option>Food</option>
+       <option>Supplies</option>
       </select>
+  </div>
+  </div>
+
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      
+    </div>
+    
+    <div class="form-group col-md-2">
+      
     </div>
   </div>
-  <button class="btn btn-info">Add</button>
+  <div class="form-group">
+    <div class="form-check">
+      
+    </div>
+  </div>
+  
 </form>
+  <hr class="my-4">
+  <a class="btn btn-info btn-lg" href="#" role="button">Add</a>
 </div>
 
 <!-- list of seller's products -->
