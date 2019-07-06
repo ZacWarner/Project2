@@ -2,6 +2,8 @@
 /* eslint-disable prettier/prettier */
 var db = require("../models");
 require("../config/passport");
+var Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 module.exports = function (app) {
     // Get all product details
@@ -29,13 +31,25 @@ module.exports = function (app) {
     });
 
     // Get product details on category
-    app.get("/api/products/categories/:category", function (req, res) {
-        db.Products.findAll({
-            where: {
-                category: req.params.category
+    app.get("/api/products/filter/:category/:pricemin/:pricemax", function (req, res) {
+        console.log("In routes");
+        let whereCondition = {
+            category: req.params.category,
+            price: {
+                [Op.gte]: req.params.pricemin,
+                [Op.lte]: req.params.pricemax
             }
+        };
+        db.Products.findAll({
+            where: whereCondition
         }).then(function (results) {
-            res.json(results);
+            // res.json(results);
+            let hbsObj = {
+                products: results,
+                user: req.user
+            };
+            console.log(hbsObj.products);
+            res.render("products", { hbsObj: hbsObj });
         });
     });
 
