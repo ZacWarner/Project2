@@ -8,126 +8,137 @@ linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
 linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
 background-color: #131313;
 background-size: 20px 20px;">
-    <!--Navbar-->
+  <!--Navbar-->
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="/"><img src="/assets/images/Icon.jpeg"><span>Agora</span></a>
-        <a class="navbar-brand page-headers"><span>Welcome: </span><span>{{sellerObj.sellername}}</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/"><img src="/assets/images/Icon.jpeg"><span>Agora</span></a>
+    <a class="navbar-brand page-headers"><span>Welcome: </span><span>{{sellerObj.sellername}}</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
 
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" id="findProduct" href="/products">Search Products</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" id="findSeller" href="/searchSeller">Find Seller</a>
-                </li>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link"
+            href="/profile/{{sellerObj.sellerid}}/{{sellerObj.sellername}}">Home</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" id="findProduct" href="/products">Search Products</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" id="findSeller" href="/searchSeller">Find Seller</a>
+        </li>
 
-                <li class="nav-item"><a class="nav-link" id="logOut" href="/logout">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <br><br><br><br>
-
-    <!--Info Card-->
-<div class="card mx-5 product-card" style="">
-    <div class="card-body product-card">
-        <h5 class="card-title" id="sellername" data-sellerid={{sellerId}}></h5>
-        <div class="card-text">
-            <div class="row">
-                <div class="col-md-6">
-                    <p id="sellerPh">Phone: </p>
-                    <p id="sellerEmail">Email: </p>
-                </div>
-                <div class="col-md-6">
-                    <p id="sellerLoc">Location: </p>
-                    <button class="btn btn-info m-0">Update</button>
-                </div>
-            </div>
-        </div>
+        <li class="nav-item"><a class="nav-link" id="logOut" href="/logout">Logout</a>
+        </li>
+      </ul>
     </div>
-</div><br>
+  </nav>
+  <br><br><br><br>
 
-
-<div id="review-div" class="m-5">
-    <div class="row">
-        <div class="col-10">
-            <h2 style="color:darkturquoise">Reviews</h2>
+  <!--Info Card-->
+  <div class="card mx-5 product-card" style="">
+    <div class="card-body product-card">
+      <h5 class="card-title" id="sellername" data-sellerid={{sellerObj.sellerid}}></h5>
+      <div class="card-text">
+        <div class="row">
+          <div class="col-md-6">
+            <p id="sellerPh">Phone: </p>
+            <p id="sellerEmail">Email: </p>
+          </div>
+          <div class="col-md-6">
+            <p id="sellerLoc">Location: </p>
+            <button id="editInfo" class="btn btn-info m-0">Update</button>
+          </div>
         </div>
+      </div>
+    </div>
+  </div><br>
+
+
+  <div id="review-div" class="m-5">
+    <div class="row">
+      <div class="col-10">
+        <h2 style="color:darkturquoise">Reviews</h2>
+      </div>
     </div>
     <hr>
 
-</div>
-
-<!--Add New Product-->
-<div class="jumbotron" id="product-management">
-  <h1 class="display-4" style="color: darkturquoise">Product Management</h1>
-  <p class="lead" style="color: darkturquoise">Add a new product.</p>
-  <hr class="my-4">
-
-<form>
-  <div class="row">
-    <div class="form-group col-md-6">
-      <label style="color: darkturquoise">Product Name</label>
-      <input type="text" class="form-control" style="width: 80%" placeholder="Product Name">
-    </div>
-    <div class="form-group col-md-6">
-      <label style="color: darkturquoise">Description</label>
-      <input type="text" class="form-control" style="width: 80%" placeholder="Brief Description">
-    </div>
-  </div>
-  <div class="row">
-  <div class="form-row">
-      <div class="form-group col-md-3">
-          </div>
-    <label for="inputPrice" style="color: darkturquoise">Price</label>
-    <input type="text" class="form-control" id="inputPrice" placeholder="$0.00">
-    <div class="form-group col-md-6">
-      <label style="color: darkturquoise">Image</label>
-      <input type="text" class="form-control" style="width: 80%" placeholder="Image">
-    </div>
-    <button class="btn btn-info">Upload</button>
-  </div>
   </div>
 
-  
+  <!--Add New Product-->
+  <div class="jumbotron" id="product-management">
+    <h1 class="display-4" style="color: darkturquoise">Product Management</h1>
+    <p class="lead" style="color: darkturquoise">Add a new product.</p>
+    <hr class="my-4">
 
-  <div class="form-row">
-    
-    <div class="form-group col-md-4">
-      <label for="inputCategory" style="color: darkturquoise">Category</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>Books</option>
-        <option>Electronics</option>
-        <option>Food</option>
-        <option>Supplies</option>
-      </select>
-    </div>
-  </div>
-  <button class="btn btn-info">Add</button>
-</form>
-</div>
-
-<!-- list of seller's products -->
-    <div id="products" class="offset">
-
-        <div class="col-12 jumbotron">
-            <div class="col-12 text-center">
-                <h2 class="page-headers">Products</h2>
-            </div>
-
-            {{#each hbsObj.products}}
-            {{> cards/products-block}}
-            {{/each}}
-
+    <form>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label style="color: darkturquoise">Product Name</label>
+          <input type="text" class="form-control" style="width: 80%" placeholder="Product Name">
         </div>
+        <div class="form-group col-md-6">
+          <label style="color: darkturquoise">Description</label>
+          <input type="text" class="form-control" style="width: 80%" placeholder="Brief Description">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+          </div>
+          <label for="inputPrice" style="color: darkturquoise">Price</label>
+          <input type="text" class="form-control" id="inputPrice" placeholder="$0.00">
+          <div class="form-group col-md-6">
+            <label style="color: darkturquoise">Image</label>
+            <input type="text" class="form-control" style="width: 80%" placeholder="Image">
+          </div>
+          <button class="btn btn-info">Upload</button>
+        </div>
+      </div>
+
+
+
+      <div class="form-row">
+
+        <div class="form-group col-md-4">
+          <label for="inputCategory" style="color: darkturquoise">Category</label>
+          <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+            <option>Books</option>
+            <option>Electronics</option>
+            <option>Food</option>
+            <option>Supplies</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-info">Add</button>
+    </form>
+  </div>
+
+  <!-- list of seller's products -->
+  <div id="products" class="offset">
+
+    <div class="col-12 jumbotron">
+      <div class="col-12 text-center">
+        <h2 class="page-headers">Products</h2>
+      </div>
+      <div id="prodList">
+
+      </div>
+
     </div>
+  </div>
 
 </div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- bootstrap js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/js/profile.js"></script>

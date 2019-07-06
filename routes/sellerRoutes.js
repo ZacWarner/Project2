@@ -16,7 +16,7 @@ module.exports = function (app) {
   app.get("/api/sellers/id/:sellerid", function (req, res) {
     db.Seller.findOne({
       where: {
-        id: req.params.sellerid
+        LoginId: req.params.sellerid
       }
     }).then(function (results) {
       res.json(results);

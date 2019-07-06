@@ -29,13 +29,11 @@ $(document).ready(function () {
             username: email,
             password: password
         }).then(function (data) {
-            console.log(data);
             window.location.replace("/profile/" + data.id + "/" + data.username);
 
         }).catch(function (err) {
             console.log(err);
         });
     };
-    console.log(user)
 
 });
