@@ -39,7 +39,8 @@ background-size: 20px 20px;">
   <!--Info Card-->
   <div class="card mx-5 product-card" style="">
     <div class="card-body product-card">
-      <h5 class="card-title" id="sellername" data-sellerid={{sellerObj.sellerid}}></h5>
+      <h5 class="card-title" id="sellername" data-sellerid={{sellerObj.sellerid}}
+        data-selleremail={{sellerObj.sellername}}></h5>
       <div class="card-text">
         <div class="row">
           <div class="col-md-6">
@@ -75,25 +76,26 @@ background-size: 20px 20px;">
     <form>
       <div class="row">
         <div class="form-group col-md-6">
-          <label style="color: darkturquoise">Product Name</label>
-          <input type="text" class="form-control" style="width: 80%" placeholder="Product Name">
+          <label style="color: darkturquoise" for="prodName">Product Name</label>
+          <input type="text" class="form-control" style="width: 80%" id="prodName" placeholder="Product Name">
         </div>
         <div class="form-group col-md-6">
-          <label style="color: darkturquoise">Description</label>
-          <input type="text" class="form-control" style="width: 80%" placeholder="Brief Description">
+          <label style="color: darkturquoise" for="prodDesc">Description</label>
+          <input type="text" class="form-control" style="width: 80%" id="prodDesc" placeholder="Brief Description">
         </div>
       </div>
       <div class="row">
         <div class="form-row">
           <div class="form-group col-md-3">
           </div>
-          <label for="inputPrice" style="color: darkturquoise">Price</label>
-          <input type="text" class="form-control" id="inputPrice" placeholder="$0.00">
+          <label for="inputPrice" style="color: darkturquoise" for="prodPrice">Price</label>
+          <input type="text" class="form-control" id="prodPrice" placeholder="$0.00">
           <div class="form-group col-md-6">
-            <label style="color: darkturquoise">Image</label>
-            <input type="text" class="form-control" style="width: 80%" placeholder="Image">
+            <label style="color: darkturquoise" for="prodImg">Image</label>
+            <input type="text" class="form-control" style="width: 80%" id="prodImg" placeholder="Image">
           </div>
-          <button class="btn btn-info">Upload</button>
+          <input type="file" id="file-input">
+          <p id="status"></p>
         </div>
       </div>
 
@@ -103,7 +105,7 @@ background-size: 20px 20px;">
 
         <div class="form-group col-md-4">
           <label for="inputCategory" style="color: darkturquoise">Category</label>
-          <select id="inputState" class="form-control">
+          <select id="prodCategory" class="form-control">
             <option selected>Choose...</option>
             <option>Books</option>
             <option>Electronics</option>
@@ -112,7 +114,7 @@ background-size: 20px 20px;">
           </select>
         </div>
       </div>
-      <button class="btn btn-info">Add</button>
+      <button id="postProd" class="btn btn-info">Add</button>
     </form>
   </div>
 
@@ -130,6 +132,81 @@ background-size: 20px 20px;">
     </div>
   </div>
 
+</div>
+
+{{!-- Modal to edit user info --}}
+<div id="infoEditModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalname">My Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <label class="field-headers" for="inputMyName">Name</label>
+            <input type="text" class="form-control" id="inputMyName" placeholder="Name">
+          </div>
+          <div class="form-row">
+            <label class="field-headers" for="inputMyPh">Phone</label>
+            <input type="text" class="form-control" id="inputMyPh" placeholder="888-888-8888">
+          </div>
+          <div class="form-row">
+            <label class="field-headers" for="inputMyLoc">Location</label>
+            <input type="text" class="form-control" id="inputMyLoc" placeholder="location">
+          </div>
+          <div class="form-row">
+            <button type="submit" id="updateInfo" class="btn btn-primary">Save</button>
+          </div>
+          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Modal to edit product info --}}
+<div id="prodEditModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalname">Product Update</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <label class="field-headers" for="inputProdName">Name</label>
+            <input type="text" class="form-control" id="inputProdName" placeholder="Product name">
+          </div>
+          <div class="form-row">
+            <label class="field-headers" for="inputProdPrice">Price</label>
+            <input type="text" class="form-control" id="inputProdPrice" placeholder="$0.00">
+          </div>
+          <div class="form-row">
+            <label class="field-headers" for="inputProdDesc">Description</label>
+            <textarea rows="5" form="usrform" class="form-control" id="inputProdDesc"
+              placeholder="Description"></textarea>
+          </div>
+          <div class="form-row">
+            <button type="submit" id="updateProd" class="btn btn-primary">Save</button>
+          </div>
+          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- jQuery -->
