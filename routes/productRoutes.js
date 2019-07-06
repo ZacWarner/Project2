@@ -72,7 +72,7 @@ module.exports = function (app) {
             category: req.body.category,
             picture: req.body.picture,
             description: req.body.description,
-            LoginId: req.user.id
+            LoginId: req.body.id
         }).then(function (result) {
             res.json(result);
         });
@@ -83,14 +83,11 @@ module.exports = function (app) {
         db.Products.update({
             name: req.body.name,
             price: req.body.price,
-            category: req.body.category,
-            picture: req.body.picture,
-            description: req.body.description,
-            LoginId: req.user.id
+            description: req.body.description
         },
             {
                 where: {
-                    LoginId: req.user.id,
+                    LoginId: req.body.id,
                     id: req.params.productid
                 }
             }).then(function (result) {
@@ -99,10 +96,10 @@ module.exports = function (app) {
     });
 
     // Delete seller
-    app.delete("/api/products/deleteproduct/:id", function (req, res) {
+    app.delete("/api/products/deleteproduct/:loginId/:id", function (req, res) {
         db.Products.destroy({
             where: {
-                LoginId: req.user.id,
+                LoginId: req.params.loginId,
                 id: req.params.id
             }
         }).then(function (result) {
