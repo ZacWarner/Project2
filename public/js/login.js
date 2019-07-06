@@ -1,6 +1,6 @@
 
 
-//java for signup page.
+//java for login page.
 
 $(document).ready(function () {
     var login = $("#login");
@@ -28,11 +28,14 @@ $(document).ready(function () {
         $.post("/api/login", {
             username: email,
             password: password
-        }).then(function () {
-            window.location.replace("/");
+        }).then(function (data) {
+            console.log(data);
+            window.location.replace("/profile/" + data.id + "/" + data.username);
+
         }).catch(function (err) {
             console.log(err);
         });
     };
+    console.log(user)
 
 });
