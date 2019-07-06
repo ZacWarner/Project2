@@ -265,7 +265,7 @@ $(document).ready(function () {
      Bind listeners when the page loads.
     */
     (() => {
-        document.getElementById("file-input").onchange = initUpload;
+        document.getElementById("prodImg").onchange = initUpload;
     })();
 
 });
