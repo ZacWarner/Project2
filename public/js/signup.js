@@ -46,7 +46,7 @@ $(document).ready(function () {
         }
         let key = "13dfe254ebf93650d6bf38984d929d97";
         // let queryUrl = "http://apilayer.net/api/check?access_key=" + (process.env.EMAIL_VALIDATION_KEY) + "&email=" + newUsr.username;
-        let queryUrl = "http://apilayer.net/api/check?access_key=" + key + "&email=" + newUsr.username;
+        let queryUrl = "https://apilayer.net/api/check?access_key=" + key + "&email=" + newUsr.username;
         $.ajax({
             url: queryUrl,
             method: "GET"
