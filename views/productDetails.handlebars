@@ -135,6 +135,44 @@ background-size: 20px 20px;">
     </div>
 </div>
 
+{{!-- Modal to add review --}}
+<div id="reviewmodal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalname">Add Review!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-row">
+                        <label class="field-headers" for="inputReviewerName">Name</label>
+                        <input type="text" class="form-control" id="inputReviewerName" placeholder="Your Name">
+                    </div>
+                    <div class="form-row">
+                        <label class="field-headers" for="inputProdId">Product ID</label>
+                        <input type="text" class="form-control" id="inputProdId" placeholder="ID">
+                    </div>
+                    <div class="form-row">
+                        <label class="field-headers" for="inputReview">Review</label>
+                        <textarea rows="5" form="usrform" class="form-control" id="inputReview"
+                            placeholder="Add comment.."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" id="postreview" class="btn btn-primary">Post</button>
+                    </div>
+                    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span> <span class="msg"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 

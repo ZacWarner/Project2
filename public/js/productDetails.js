@@ -59,4 +59,24 @@ $(document).ready(function () {
         });
     });
 
+    $("#addreview").on("click", function (event) {
+        event.preventDefault();
+        $("#reviewmodal").modal("show");
+    });
+
+    $("#postreview").on("click", function () {
+        let reviewerName = $("#inputReviewerName").val().trim();
+        let review = $("#inputReview").val().trim();
+        let prodId = $("#inputProdId").val().trim();
+
+        $.post("/api/reviews/newreview", {
+            reviewer_name: reviewerName,
+            review: review,
+            product_id: prodId,
+            sellerid: dataAttr
+        }).then(function (data) {
+            console.log("New comment added!");
+        });
+    });
+
 });
