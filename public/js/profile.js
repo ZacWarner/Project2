@@ -254,7 +254,7 @@ $(document).ready(function () {
     */
     function initUpload() {
         console.log("Upload Init");
-        const files = document.getElementById("file-input").files;
+        const files = document.getElementById("prodImg").files;
         const file = files[0];
         if (file === null) {
             return alert("No file selected.");
