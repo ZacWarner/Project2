@@ -16,7 +16,7 @@ module.exports = function (app) {
   app.get("/api/sellers/id/:sellerid", function (req, res) {
     db.Seller.findOne({
       where: {
-        id: req.params.sellerid
+        LoginId: req.params.sellerid
       }
     }).then(function (results) {
       res.json(results);
@@ -58,11 +58,11 @@ module.exports = function (app) {
       phone: req.body.phone,
       location: req.body.location,
       photo: req.body.photo,
-      LoginId: req.user.id
+      LoginId: req.body.id
     },
       {
         where: {
-          LoginId: req.user.id,
+          LoginId: req.body.id,
           id: req.params.sellerid
         }
       }).then(function (result) {

@@ -24,10 +24,10 @@ module.exports = function (app) {
   // Seller private profile
   app.get("/profile/:sellerid/:sellername", function (req, res) {
     let sellerObj = {
-      sellerid: req.params.sellerId,
+      sellerid: req.params.sellerid,
       sellername: req.params.sellername
     };
-    //console.log("Id in htmlroute: " + id);
+
     res.render("profile", { sellerObj: sellerObj });
   });
 
