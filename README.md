@@ -24,3 +24,7 @@
 
 ## Deployed version of app
 https://project2agora.herokuapp.com/ 
+
+## Pictures of the app
+
+![picture alt](./public/assets/images/Agora main page.png)
