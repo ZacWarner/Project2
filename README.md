@@ -11,3 +11,6 @@
 
 ## A full stack web app
 ### built using node, express, sequelize, java, html, and css
+
+##Deployed version of app
+https://project2agora.herokuapp.com/ 
