@@ -1,6 +1,6 @@
 # Project2
 
-## Student Exchange Portal
+## Agora
 
 1) Users identify if they are using the application as a seller or buyer.
 2) Buyers are presented with search parameters to define, and can search the database using pre-determined filters.
@@ -27,4 +27,4 @@ https://project2agora.herokuapp.com/
 
 ## Pictures of the app
 
-![picture alt](./public/assets/images/Agora main page.png)
+![image of Agora Main page](./public/assets/images/AgoraMainPage.png)
