@@ -10,7 +10,17 @@
 6) Buyers can leave reviews of Sellers, report fraud/inaccurate account (Seller never deletes items that have been sold, etc.)
 
 ## A full stack web app
-### built using node, express, sequelize, java, html, and css
+### technologies
+* node
+* express
+* sequelize
+* passport
+* html
+* jquery
+* java
+* ajax
+* css
+
 
 ## Deployed version of app
 https://project2agora.herokuapp.com/ 
