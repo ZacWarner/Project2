@@ -27,4 +27,4 @@ https://project2agora.herokuapp.com/
 
 ## Pictures of the app
 
-![picture alt](./public/assets/images/Agora main page.png)
+![image of main page](./public/assets/images/Agora main page.png)
