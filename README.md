@@ -27,4 +27,8 @@ https://project2agora.herokuapp.com/
 
 ## Pictures of the app
 
+<<<<<<< HEAD
 ![image of Agora Main page](./public/assets/images/AgoraMainPage.png)
+=======
+![image of main page](./public/assets/images/Agora main page.png)
+>>>>>>> 220123d2e033fe5b48ccfc19aef68c80b6269c81
